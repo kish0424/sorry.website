@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorry, My Love!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #0e0b16;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: white;
+        }
+
+        #container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 50px;
+            color: #ff4757;
+            animation: explodeText 1s infinite;
+        }
+
+        h2 {
+            font-size: 30px;
+            color: #ffa502;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: #2ed573;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1e90ff;
+        }
+
+        /* Explosive animation */
+        @keyframes explodeText {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+                color: #ffa502;
+            }
+        }
+
+        /* Fireworks Animation */
+        .firework {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background-color: #ff6b81;
+            border-radius: 50%;
+            animation: shootFirework 1s linear infinite;
+        }
+
+        @keyframes shootFirework {
+            0% {
+                top: 100vh;
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                top: 10vh;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>I’m Sorry, Lablab!</h1>
+        <h2>Please forgive me 💖</h2>
+        <button onclick="playApology()">Play My Apology Song</button>
+    </div>
+
+    <!-- Fireworks -->
+    <div class="firework" style="left: 20%; animation-delay: 0s;"></div>
+    <div class="firework" style="left: 50%; animation-delay: 0.3s;"></div>
+    <div class="firework" style="left: 80%; animation-delay: 0.6s;"></div>
+
+    <!-- Apology Song -->
+    <audio id="apologySong">
+        <source src="c:\Users\User\Downloads\PALAGI (Wedding Version) - TJ Monterde _ OFFICIAL AUDIO.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        function playApology() {
+            var song = document.getElementById('apologySong');
+            song.play();
+            alert("I’m sorry, and I love you!");
+        }
+
+        // Fireworks animation logic
+        function createFireworks() {
+            let fireworks = document.querySelectorAll('.firework');
+            fireworks.forEach(firework => {
+                firework.style.top = '100vh';
+                firework.style.animation = 'shootFirework 1s linear infinite';
+            });
+        }
+
+        window.onload = function() {
+            createFireworks();
+        };
+    </script>
+
